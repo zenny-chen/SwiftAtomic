@@ -15,9 +15,9 @@ let a = size_t(100)
 let size = MemoryLayout.size(ofValue: a)
 print("a = \(a), size is: \(size)")
 
-let type: size_t.Type = type(of: a)
-print("type of a is: \(type)")
-print("minimum value is: \(type.min)")
+let t = type(of: a)
+print("type of a is: \(t)")
+print("minimum value is: \(t.min)")
 
 
 // MARK: atomic test
@@ -539,7 +539,7 @@ print("Time spent: \(spentTime * 1000.0) ms")
 
 var sum = Int64(0)
 for i in 0 ..< arr.count {
-    sum += arr[i]
+    sum += Int64(arr[i])
 }
 
 print("sum = \(sum)")
@@ -547,7 +547,8 @@ print("sum = \(sum)")
 // 测试结果正确性
 sum = 0
 for i in 0 ..< 1_000_000 {
-    sum += i
+    sum += Int64(i)
 }
 
 print("test sum = \(sum)")
+
